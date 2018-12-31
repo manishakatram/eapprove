@@ -137,12 +137,12 @@
 <?php include('server.php') ?>
 <?php
 
-$conn = new mysqli('localhost', 'root', 'password', 'eapprove');
+$conn = new mysqli('localhost', 'root', 'password', 'documents');
 if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
 
-$sql = "SELECT * FROM documents ORDER BY uploaded_on DESC";
+$sql = "SELECT * FROM images ORDER BY uploaded_on DESC";
 $result = $conn->query($sql);
 
 if ($result->num_rows > 0) {
