@@ -145,7 +145,7 @@
 
 <?php
 // Create connection
-$conn = new mysqli('localhost', 'root', 'password', 'eapprove');
+$conn = new mysqli('localhost', 'root', 'password', 'registration');
 // Check connection
 if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
