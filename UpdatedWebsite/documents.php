@@ -143,7 +143,7 @@ if ($conn->connect_error) {
 }
 
 $username = $_SESSION['username'];
-$sql = "SELECT * FROM documents WHERE username='$username' OR ";
+$sql = "SELECT * FROM documents WHERE username='$username'";
 $result = $conn->query($sql);
 
 if ($result->num_rows > 0) {
