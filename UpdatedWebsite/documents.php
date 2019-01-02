@@ -143,20 +143,41 @@ if ($conn->connect_error) {
 }
 
 $username = $_SESSION['username'];
-$sql = "SELECT * FROM documents WHERE username='$username'";
-$result = $conn->query($sql);
 
-if ($result->num_rows > 0) {
-    // output data of each row
-    while($row = $result->fetch_assoc()) {
-		echo '<a class= "name"  href="uploads/'.$row["filename"].'"> '.$row["filename"]. '</a>';
-		echo "<br>";
-		echo "<br>";
-		echo "<br>";
-    }
+if ($username == 'admin'){
+  $sql = "SELECT * FROM documents ORDER BY username";
+  $result = $conn->query($sql);
+
+  if ($result->num_rows > 0) {
+      // output data of each row
+      while($row = $result->fetch_assoc()) {
+  		echo '<a class= "name"  href="uploads/'.$row["filename"].'"> '.$row["filename"]. '</a>';
+  		echo "<br>";
+  		echo "<br>";
+  		echo "<br>";
+      }
+  } else {
+    // echo '<a class= "name"  href="uploads/'.$row["filename"].'"> '.$row["filename"]. '</a>';
+      echo "0 results";
+  }
 } else {
-    echo "0 results";
+  $sql = "SELECT * FROM documents WHERE username='$username'";
+  $result = $conn->query($sql);
+
+  if ($result->num_rows > 0) {
+      // output data of each row
+      while($row = $result->fetch_assoc()) {
+  		echo '<a class= "name"  href="uploads/'.$row["filename"].'"> '.$row["filename"]. '</a>';
+  		echo "<br>";
+  		echo "<br>";
+  		echo "<br>";
+      }
+  } else {
+    // echo '<a class= "name"  href="uploads/'.$row["filename"].'"> '.$row["filename"]. '</a>';
+      echo "0 results";
+  }
 }
+
 $conn->close();
 
 ?>
