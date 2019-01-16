@@ -148,8 +148,8 @@ $result = $conn->query($sql);
 if ($result->num_rows > 0) {
     // output data of each row
     while($row = $result->fetch_assoc()) {
-    // include('server.php');
-		echo '<a class= "name"  href="/uploads/'.$row["file_name"].'"> '.$row["file_name"]. '</a>';
+
+		echo '<a class= "name"  href="uploads/'.$row["file_name"].'"> '.$row["file_name"]. '</a>';
 		echo "<br>";
 		echo "<br>";
 		echo "<br>";
